@@ -52,8 +52,8 @@ export async function getLiveMatches(): Promise<MatchInfo[]> {
     try {
       await page.waitForSelector('.ds-text-tight-m', { timeout: 10000 });
     } catch (e) {
-      console.warn("Selector not found within timeout, returning empty array.");
-      return [];
+      console.warn("Selector not found within timeout. Page might not have loaded properly or ESPN changed their layout.");
+      throw new Error("Timeout waiting for match cards");
     }
 
     // Extract match data
@@ -131,7 +131,7 @@ export async function getLiveMatches(): Promise<MatchInfo[]> {
 
   } catch (error) {
     console.error("Error scraping matches:", error);
-    return [];
+    throw error;
   } finally {
     if (browser) {
       await browser.close();

@@ -11,7 +11,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-white font-medium mb-1">Real-time Updates</h4>
-            <p className="text-chalk/60 text-sm">Scores refresh roughly every 45 minutes</p>
+            <p className="text-chalk/60 text-sm">Scores refresh roughly every 1 minute</p>
           </div>
         </div>
 

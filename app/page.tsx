@@ -60,7 +60,7 @@ export default function Home() {
             Live Cricket Scores
           </h1>
           <p className="mt-4 font-body text-chalk/80 text-base sm:text-lg">
-            Every live series, one scoreboard. Scores update roughly every 45 minutes.
+            Every live series, one scoreboard. Scores update roughly every 1 minute.
           </p>
 
           <div className="mt-10">
