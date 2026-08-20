@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-pitch text-chalk bg-stadium bg-cover bg-center bg-no-repeat bg-fixed min-h-screen font-body antialiased;
+    @apply bg-pitch text-chalk min-h-screen font-body antialiased;
   }
 }
 

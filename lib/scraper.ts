@@ -80,8 +80,21 @@ export async function getLiveMatches(): Promise<MatchInfo[]> {
           let seriesName = 'Other matches';
           let matchFormat = 'TEST'; // Default
 
+          let matchUrl = null;
+
           const cardContainer = el.closest('.ds-text-compact-xxs, .ds-border, [class*="ds-rounded"]');
           if (cardContainer) {
+            // Find the link to the scorecard
+            const matchLinkEl = cardContainer.querySelector('a[href*="live-cricket-score"], a[href*="full-scorecard"], a[href*="match-report"], a[href*="live-cricket-match"]') as HTMLAnchorElement;
+            if (matchLinkEl) {
+                matchUrl = matchLinkEl.href || matchLinkEl.getAttribute('href');
+            } else {
+                // fallback to any a tag that isn't the series link
+                const links = Array.from(cardContainer.querySelectorAll('a'));
+                if (links.length > 2) matchUrl = links[2].href || links[2].getAttribute('href');
+                else if (links.length > 0) matchUrl = links[0].href || links[0].getAttribute('href');
+            }
+
             const headerEl = cardContainer.querySelector('.ds-text-tight-xs, .ds-text-tight-s');
             if (headerEl) {
               const headerText = (headerEl as HTMLElement).innerText.trim();
@@ -107,7 +120,7 @@ export async function getLiveMatches(): Promise<MatchInfo[]> {
             status,
             seriesName,
             matchFormat,
-            matchUrl: null
+            matchUrl
           });
         }
       });

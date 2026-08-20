@@ -29,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${display.variable} ${body.variable} ${mono.variable} font-body bg-pitch text-chalk`}>
+        <div className="fixed inset-0 bg-stadium bg-cover bg-center bg-no-repeat -z-10" />
         {children}
       </body>
     </html>
