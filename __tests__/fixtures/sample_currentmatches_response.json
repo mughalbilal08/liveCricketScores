@@ -1,0 +1,63 @@
+{
+  "apikey": "test-key",
+  "status": "success",
+  "data": [
+    {
+      "id": "abc-123",
+      "name": "Pakistan vs Sri Lanka, 1st ODI",
+      "matchType": "odi",
+      "status": "Sri Lanka need 66 runs in 70 balls",
+      "venue": "Gaddafi Stadium, Lahore",
+      "date": "2026-08-19",
+      "dateTimeGMT": "2026-08-19T09:00:00",
+      "teams": ["Pakistan", "Sri Lanka"],
+      "teamInfo": [
+        { "name": "Pakistan", "shortname": "PAK", "img": "" },
+        { "name": "Sri Lanka", "shortname": "SL", "img": "" }
+      ],
+      "score": [
+        { "r": 245, "w": 6, "o": 50, "inning": "Pakistan Inning 1" },
+        { "r": 180, "w": 4, "o": 38.2, "inning": "Sri Lanka Inning 1" }
+      ],
+      "series_id": "series-1",
+      "matchStarted": true,
+      "matchEnded": false
+    },
+    {
+      "id": "def-456",
+      "name": "India Women vs Australia Women, Final",
+      "matchType": "t20",
+      "status": "India Women chose to bat",
+      "venue": "Wankhede Stadium, Mumbai",
+      "date": "2026-08-19",
+      "dateTimeGMT": "2026-08-19T14:00:00",
+      "teams": ["India Women", "Australia Women"],
+      "teamInfo": [
+        { "name": "India Women", "shortname": "IN-W", "img": "" },
+        { "name": "Australia Women", "shortname": "AU-W", "img": "" }
+      ],
+      "score": [{ "r": 156, "w": 5, "o": 20, "inning": "India Women Inning 1" }],
+      "series_id": "series-2",
+      "matchStarted": true,
+      "matchEnded": false
+    },
+    {
+      "id": "ghi-789",
+      "name": "Kabul Zalmi vs Shamshad Eagles, Eliminator",
+      "matchType": "t20",
+      "status": "Match starts in 2 hours",
+      "venue": "Ayoubi Cricket Ground, Kabul",
+      "date": "2026-08-19",
+      "dateTimeGMT": "2026-08-19T16:00:00",
+      "teams": ["Kabul Zalmi", "Shamshad Eagles"],
+      "teamInfo": [
+        { "name": "Kabul Zalmi", "shortname": "KZ", "img": "" },
+        { "name": "Shamshad Eagles", "shortname": "SHE", "img": "" }
+      ],
+      "score": [],
+      "series_id": "series-3",
+      "matchStarted": false,
+      "matchEnded": false
+    }
+  ]
+}
