@@ -7,20 +7,35 @@
  * bypassing Akamai Bot Manager which previously blocked simple fetch() calls.
  */
 
-import puppeteer from 'puppeteer';
 import type { MatchInfo } from "./types";
 
 export async function getLiveMatches(): Promise<MatchInfo[]> {
   let browser;
   try {
-    // Launch puppeteer. In a real Vercel deployment, this would need
-    // @sparticuz/chromium or chrome-aws-lambda. For local development,
-    // the standard puppeteer Chromium installation works.
-    browser = await puppeteer.launch({ 
-      headless: true,
-      executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
+    let puppeteer;
+    let launchOptions: any = {};
+
+    if (process.env.VERCEL) {
+      // In Vercel, use puppeteer-core and @sparticuz/chromium
+      puppeteer = require('puppeteer-core');
+      const chromium = require('@sparticuz/chromium');
+      launchOptions = {
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+      };
+    } else {
+      // Locally, use standard puppeteer and local Chrome
+      puppeteer = require('puppeteer');
+      launchOptions = {
+        headless: true,
+        executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+      };
+    }
+
+    browser = await puppeteer.launch(launchOptions);
     
     const page = await browser.newPage();
     

@@ -12,11 +12,13 @@
   "dependencies": {
     "@react-three/drei": "9.108.3",
     "@react-three/fiber": "8.16.8",
+    "@sparticuz/chromium": "^149.0.0",
     "cheerio": "^1.0.0-rc.12",
     "fuse.js": "^7.5.0",
     "lucide-react": "^1.33.0",
     "next": "14.2.35",
     "puppeteer": "^25.8.0",
+    "puppeteer-core": "^25.8.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "three": "0.165.0"
