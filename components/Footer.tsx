@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="w-full max-w-5xl mx-auto mt-12 mb-8 border-t border-white/10 pt-8 px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        
+
         <div className="flex items-start gap-4">
           <div className="mt-1 text-green-400">
             <Zap className="w-6 h-6" />
@@ -45,6 +45,16 @@ export default function Footer() {
           </div>
         </div>
 
+      </div>
+
+      <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-chalk/50">
+        <p>© {new Date().getFullYear()} Live Cricket Scores. All rights reserved.</p>
+        <p className="flex items-center gap-1">
+          Developed By:
+          <a href="https://github.com/mughalbilal08" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-400 transition-colors font-medium ml-1">
+            Bilal Iftikhar
+          </a>
+        </p>
       </div>
     </footer>
   );
