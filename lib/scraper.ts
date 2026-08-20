@@ -20,7 +20,7 @@ export async function getLiveMatches(): Promise<MatchInfo[]> {
       const puppeteerMod = await import('puppeteer-core');
       puppeteer = puppeteerMod.default || puppeteerMod;
       const chromiumMod = await import('@sparticuz/chromium');
-      const chromium = chromiumMod.default || chromiumMod;
+      const chromium = (chromiumMod.default || chromiumMod) as any;
       launchOptions = {
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
