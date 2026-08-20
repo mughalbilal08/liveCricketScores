@@ -1,7 +1,7 @@
 import type { MatchInfo } from "@/lib/types";
 import { ListVideo, Calendar } from "lucide-react";
 
-function TeamRow({ name, score }: { name: string; score: string | null }) {
+function TeamRow({ name, score, logo }: { name: string; score: string | null; logo?: string | null }) {
   // If score looks like "168/6 (20.0)", we can split it for better styling,
   // or just display it as is. Let's try splitting if it contains parentheses.
   let mainScore = score ?? "";
@@ -15,7 +15,13 @@ function TeamRow({ name, score }: { name: string; score: string | null }) {
   return (
     <div className="flex items-center justify-between py-1">
       <div className="flex items-center gap-3">
-        <div className="w-4 h-3 rounded-[2px] bg-white/20"></div> {/* Placeholder flag */}
+        {logo ? (
+          <img src={logo} alt={`${name} logo`} className="w-5 h-5 object-contain rounded-[2px]" />
+        ) : (
+          <div className="w-5 h-5 rounded-[2px] bg-white/10 flex items-center justify-center">
+             <span className="text-[9px] font-bold text-white/50 tracking-tighter">{name.substring(0, 2).toUpperCase()}</span>
+          </div>
+        )}
         <span className="font-display font-medium text-chalk text-[15px]">{name}</span>
       </div>
       {score ? (
@@ -66,8 +72,8 @@ export default function MatchCard({ match }: { match: MatchInfo }) {
         </div>
 
         <div className="space-y-1 mb-4">
-          <TeamRow name={match.team1} score={match.team1Score} />
-          <TeamRow name={match.team2} score={match.team2Score} />
+          <TeamRow name={match.team1} score={match.team1Score} logo={match.team1Logo} />
+          <TeamRow name={match.team2} score={match.team2Score} logo={match.team2Logo} />
         </div>
 
         <p className={`text-xs font-medium ${statusColor} mb-6 line-clamp-2 min-h-[1rem]`}>
