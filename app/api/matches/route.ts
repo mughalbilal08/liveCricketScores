@@ -13,7 +13,8 @@
 import { NextResponse } from "next/server";
 import { getLiveMatches, groupBySeries } from "@/lib/scraper";
 
-export const revalidate = 2700; // 45 minutes — keep in sync with lib/scraper.ts's CACHE_SECONDS
+export const revalidate = 60; // 1 minute
+export const maxDuration = 60; // Allow Vercel to run up to 60s for the scraper
 
 export async function GET() {
   try {
