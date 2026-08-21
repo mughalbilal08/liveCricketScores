@@ -16,15 +16,15 @@ export async function getLiveMatches(): Promise<MatchInfo[]> {
     let launchOptions: any = {};
 
     if (process.env.VERCEL) {
-      // In Vercel, use puppeteer-core and @sparticuz/chromium
+      // In Vercel, use puppeteer-core and @sparticuz/chromium-min
       const puppeteerMod = await import('puppeteer-core');
       puppeteer = puppeteerMod.default || puppeteerMod;
-      const chromiumMod = await import('@sparticuz/chromium');
+      const chromiumMod = await import('@sparticuz/chromium-min');
       const chromium = (chromiumMod.default || chromiumMod) as any;
       launchOptions = {
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(),
+        executablePath: await chromium.executablePath('https://github.com/Sparticuz/chromium/releases/download/v131.0.0/chromium-v131.0.0-pack.tar'),
         headless: chromium.headless,
       };
     } else {
